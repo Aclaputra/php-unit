@@ -36,3 +36,14 @@ Route::get('/admin/login', function () {
 Route::get('/admin/register', function () {
     return view('admin.register');
 });
+
+// test template
+Route::get('/template', function () {
+    return view('template');
+});
+
+Route::controller(\App\Http\Controllers\UserController::class)->group(function () {
+    Route::get('/login', 'login');
+    Route::post('/login', 'doLogin');
+    Route::post('/logout', 'doLogout');
+});
