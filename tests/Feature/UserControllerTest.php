@@ -12,4 +12,24 @@ class UserControllerTest extends TestCase
         $this->get('/login')
             ->assertSeeText("login");
     }
+
+    public function testLoginSuccess() {
+        $this->post('/login', [
+            "user" => "acla",
+            "password" => "rahasia"
+        ])->assertRedirect("/")
+          ->assertSessionHas("user", "acla");
+    }
+
+    public function testLoginValidationError() {
+        $this->post("/login", [])
+            ->assertSeeText("User or password is required");
+    }
+
+    public function testLoginFailed() {
+        $this->post('/login', [
+            'user' => 'wrong',
+            'password' => 'wrong'
+        ])->assertSeeText("User or password is wrong");
+    }
 }
