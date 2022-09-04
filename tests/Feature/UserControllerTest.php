@@ -28,6 +28,15 @@ class UserControllerTest extends TestCase
           ->assertSessionHas("user", "acla");
     }
 
+    public function testLoginForUserAlreadyLogin() {
+        $this->withSession([
+            "user" => "acla"
+        ])->post('/login', [
+            "user" => "acla",
+            "password" => "rahasia"
+        ])->assertRedirect("/");
+    }
+
     public function testLoginValidationError() {
         $this->post("/login", [])
             ->assertSeeText("User or password is required");
@@ -46,5 +55,10 @@ class UserControllerTest extends TestCase
         ])->post('/logout')
             ->assertRedirect('/')
             ->assertSessionMissing('user');
+    }
+
+    public function testLogoutGuest() {
+        $this->post('/logout')
+            ->assertRedirect('/');
     }
 }
