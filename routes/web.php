@@ -17,33 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/**
- *  student login register.
- */
-Route::get('/login', function () {
-    return view('student.login');
-});
-Route::get('/register', function () {
-    return view('student.register');
-});
-
-/**
- *  admin login register.
- */
-Route::get('/admin/login', function () {
-    return view('admin.login');
-});
-Route::get('/admin/register', function () {
-    return view('admin.register');
-});
-
 // test template
 Route::get('/template', function () {
     return view('template');
 });
 
 Route::controller(\App\Http\Controllers\UserController::class)->group(function () {
-    Route::get('/login', 'login');
-    Route::post('/login', 'doLogin');
+    Route::get('/login', 'login')
+      ->middleware([\App\Http\Middleware\OnlyGuestMiddleware::class]);
+    Route::post('/login', 'doLogin')
+      ->middleware([App\Http\Middleware\OnlyGuestMiddleware::class]);
     Route::post('/logout', 'doLogout');
 });
