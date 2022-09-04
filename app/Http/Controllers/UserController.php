@@ -25,7 +25,7 @@ class UserController extends Controller
           ]);
   }
 
-  public function doLogin(Request $request): RedirectResponse {
+  public function doLogin(Request $request) {
       $user = $request->input('user');
       $password = $request->input('password');
 
