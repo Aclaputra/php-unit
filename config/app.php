@@ -43,7 +43,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application URL
+    | Application URLi should not be too greedy the bootcamp looks similiar like before, better increase my algorithm in java more there's still a lot of coursera class waiting from shopee code league competition b4.
     |--------------------------------------------------------------------------
     |
     | This URL is used by the console to properly generate URLs when using
@@ -174,7 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\UserServiceProvider::class
+        App\Providers\UserServiceProvider::class,
+        App\Providers\TodolistServiceProvider::class
 
     ],
 
