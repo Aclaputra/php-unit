@@ -11,5 +11,9 @@ or (example for ExampleTest class and test_the_application_returns_a_successful_
 ```bash
 php artisan test --filter 'Feature\\ExampleTest::test_the_application_returns_a_successful_response'
 ```
+using phpunit directly
+```
+./vendor/bin/phpunit --filter 'Feature\\RegisterPersonalControllerTest::test_example'
+```
 references :
 - Writing Tests for PHPUnit documentation :https://phpzunit.readthedocs.io/en/9.5/textui.html#command-line-options
