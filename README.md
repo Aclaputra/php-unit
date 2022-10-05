@@ -16,4 +16,5 @@ using phpunit directly
 ./vendor/bin/phpunit --filter 'Feature\\RegisterPersonalControllerTest::test_example'
 ```
 references :
-- Writing Tests for PHPUnit documentation :https://phpzunit.readthedocs.io/en/9.5/textui.html#command-line-options
+- Writing Tests for PHPUnit documentation : https://phpzunit.readthedocs.io/en/9.5/textui.html#command-line-options
+- Using Guzzle and PHPUnit for REST API Testing : https://blog.cloudflare.com/using-guzzle-and-phpunit-for-rest-api-testing/
